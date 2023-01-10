@@ -1,13 +1,10 @@
-.App {
-  text-align: center;
-}
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-.images {
+.imageInMainMenu {
   display: block;
   max-width:230px;
   max-height:95px;
@@ -35,3 +32,101 @@
   list-style-type: none;
 
 }
+
+.individualGame{
+  display: block;
+  overflow: auto;
+  background-color: rgb(252, 242, 203);
+  max-width:1200;
+  max-height:500px;
+  border-style: solid;
+  border-color: rgb(211, 193, 37);
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.imageInIndividual{
+   display: block;
+   max-width: 90%;
+   max-height: 90%;
+  width: auto;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  grid-area: 2 / 1 / 3 / 3;
+  
+}
+
+.reviewInfo{
+  text-align: left;
+  border-style: solid;
+  border-color: rgb(211, 193, 37);
+  border-width: 1px;
+  grid-area: 1 / 3 / 2 / 6;
+  display:block; 
+
+}
+
+
+.reviewBody{
+  text-align: left;
+  grid-area: 2 / 3 / 4 / 6;
+  font-size: 90%;
+  line-height: 90%;
+  width: 80%;
+  top: 40px;
+  padding: 10px 20px 18px 20px;
+  margin-bottom: 50px;
+  display:block; 
+  margin: auto;
+  
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  }
+
+  .reviewTitle{
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  
+  .comments { grid-area: 4 / 1 / 6 / 5;
+    font-size: 90%;
+    line-height: 90%;
+    width: 80%;
+    top: 40px;
+    padding: 10px 20px 18px 20px;
+    margin: auto;
+   }
+
+   .author {
+    font-size: 70%;
+    text-align: left;
+   }
+
+   .comment {
+    overflow: auto;
+    border-style: solid;
+    border-color: rgb(89, 37, 211);
+    border-width: 1px;
+    margin: 5px;
+    padding: 5px;
+   }
+
+   .created_at{
+    font-size: 60%;
+    text-align: right;
+
+   }
+   .votes{
+    text-align: right;
+    font-size: 90%;
+   }

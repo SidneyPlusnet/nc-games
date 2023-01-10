@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react'
+import { Link} from 'react-router-dom';
+import { fetchReviews } from '../Utils/api';
 
-
-function CreateListOfReviews() {
+function CreateListOfReviews({individualReview, setIndividualReview}) {
 
 const [listOfReviews, setListOfReviews] = useState([])
 const [isLoading, setIsLoading] = useState(true)
 
+const handleReviewClick = (review) => {
+    setIndividualReview(review)
+  };
+
+
 useEffect(()=>{
 
-    fetch("https://sidneys-games-ii.onrender.com/api/reviews")
-    .then((response) => { 
-       return response.json()})
-    .then((data) => {
+    fetchReviews().then((data) => {
         setIsLoading(false)
         setListOfReviews(data.reviews)
     })}, [])
@@ -26,12 +29,13 @@ if(isLoading){
                 <h2>{review.title}</h2>
                 <p>Owner: {review.owner}</p>
                 <p>Votes: {review.votes}</p>
-                <img alt = {review.title} className="images" src= {review.review_img_url} />
+                <img alt = {review.title} className="imageInMainMenu" src= {review.review_img_url} />
+                <Link to = {`games/${review.review_id}`}>
+                <button onClick={() => handleReviewClick(review)}>More info...</button>
+                </Link>
             </li>
             
         })}</ul>
-
-
 
         )
 
