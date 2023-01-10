@@ -23,7 +23,7 @@ function App() {
  <Routes> 
   <Route path = "/" element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview}/>}/>
   
- <Route path = {`games/${individualReview.title}`} element = {<IndividualReviewFunc individualReview = {individualReview} />} /> 
+ <Route path = "/games/:review_Id_Url" element = {<IndividualReviewFunc individualReview = {individualReview} />} /> 
  </Routes>
 
     </div>
