@@ -1,8 +1,8 @@
 function Header() {
     return (
-    <section>
+    <header>
         <h1>Games Reviews</h1>
-    </section>
+    </header>
 )}
 
 export default Header
