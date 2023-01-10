@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react'
+import { Link} from 'react-router-dom';
 
-
-function CreateListOfReviews() {
+function CreateListOfReviews({individualReview, setIndividualReview}) {
 
 const [listOfReviews, setListOfReviews] = useState([])
 const [isLoading, setIsLoading] = useState(true)
+
+const handleReviewClick = (review) => {
+    setIndividualReview(review)
+  };
+
 
 useEffect(()=>{
 
@@ -27,6 +32,9 @@ if(isLoading){
                 <p>Owner: {review.owner}</p>
                 <p>Votes: {review.votes}</p>
                 <img alt = {review.title} className="images" src= {review.review_img_url} />
+                <Link to = {`games/${review.title}`}>
+                <button onClick={() => handleReviewClick(review)}>More info...</button>
+                </Link>
             </li>
             
         })}</ul>
