@@ -32,10 +32,17 @@ export const fetchReviewById = (review_id) => {
 
 export const patchReviewByReviewId =
 (review_id, increment, setErr) =>{
-    console.log(review_id, "review_id")
+
 return gameReviewsApi.patch(`/reviews/${review_id}`, {inc_votes: increment}).then((response) => {
 
 }).catch((err)=>{
     setErr('404 - Nothing to see here')
 })
+}
+
+export const postCommentByReviewId = (review_id, newComment, happyamy2016, votesHere) => {
+const postBody = {author: happyamy2016, body: newComment, votes: votesHere, review_id: review_id}
+
+console.log(review_id)
+return gameReviewsApi.post(`/reviews/${review_id}/comments`, postBody )
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { fetchReviewById, fetchCommentsById } from "../Utils/api"
 import ReviewVotes from "./votes"
+import CommentAdder from "./new-comment"
 
 
 function IndividualReviewFunc () {
@@ -63,6 +64,8 @@ function IndividualReviewFunc () {
                 </div>
                 <p className="reviewBody">Review: {review.review_body}</p>
                 <img alt = {review.title} className="imageInIndividual" src= {review.review_img_url} />
+
+                <CommentAdder setCommentsbyId = {setCommentsbyId} review_Id_Url = {review_Id_Url}/>
 
             {commentsbyId.length!==0 ? <div className= "comments"> <h2>Comments:</h2>
                 
