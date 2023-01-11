@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { fetchReviewById, fetchCommentsById } from "../Utils/api"
+import ReviewVotes from "./votes"
 
 
 function IndividualReviewFunc () {
+
+  
 
     const [isLoading, setIsLoading] = useState(true)
 
@@ -12,6 +15,10 @@ function IndividualReviewFunc () {
     const {review_Id_Url} = useParams()
 
     const [commentsbyId, setCommentsbyId] = useState("")
+
+    const [votesChange, setVotesChange] = useState(0)
+
+    const [err, setErr] = useState(null)
 
     useEffect(()=>{
         fetchCommentsById(review_Id_Url).then((data) => {
@@ -34,14 +41,23 @@ function IndividualReviewFunc () {
             return <div>Loading...</div>
         }
 
+        if(err){
+            return (
+                <main>
+                    <p>{err}</p>
+                </main>
+            )
+        }
+
     return    <div className='individualGame'>
     
         
         <h2 className = "reviewTitle"> {review.title}</h2>
         <div className="reviewInfo">
             <h2>Info</h2>
+            <p>Votes: {review.votes + votesChange}</p>
+            <ReviewVotes review_Id_Url={review_Id_Url} votesChange={votesChange} setVotesChange = {setVotesChange} setErr = {setErr} />
                 <p>Owner: {review.owner}</p>
-                <p>Votes: {review.votes}</p>
                 <p>Designer: {review.designer}</p>
                 <p>Category: {review.category}</p>
                 </div>
@@ -54,7 +70,7 @@ function IndividualReviewFunc () {
                 return <li  key={i} className ="comment" >
                     <p className="author">Author: {comment.author}</p>
                     <p>{comment.body}</p>
-                    <p className="votes">Votes: {comment.votes}</p>
+                    <p className="votes">Votes: {comment.votes} <button>Vote up</button></p>
                     <p className="created_at">Posted...{comment.created_at}</p>
                   
                 </li>

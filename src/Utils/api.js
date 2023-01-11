@@ -1,4 +1,9 @@
+import axios from 'axios';
 
+ 
+export const gameReviewsApi = axios.create({
+    baseURL: 'https://sidneys-games-ii.onrender.com/api',
+  });
 
 export const fetchReviews = () => {
 
@@ -25,3 +30,12 @@ export const fetchReviewById = (review_id) => {
   
   }
 
+export const patchReviewByReviewId =
+(review_id, increment, setErr) =>{
+    console.log(review_id, "review_id")
+return gameReviewsApi.patch(`/reviews/${review_id}`, {inc_votes: increment}).then((response) => {
+
+}).catch((err)=>{
+    setErr('404 - Nothing to see here')
+})
+}
