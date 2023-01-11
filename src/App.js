@@ -15,10 +15,10 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div>
+    <div className='app'>
       <Header />
       <Link to = "/">
-      <p >Home</p>
+      <h2 className='homeButton'>Home</h2>
       </Link>
  
  <Routes> 

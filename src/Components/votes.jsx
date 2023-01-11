@@ -25,8 +25,8 @@ function decreaseVotes () {
 
 return (
     <section>
-        <button onClick ={increaseVotes}>Vote up</button>
-        <button onClick ={decreaseVotes}>Vote down</button>
+        <button onClick ={increaseVotes} className = "voteButtonUp">Vote up</button>
+        <button onClick ={decreaseVotes} className = "voteButtonDown">Vote down</button>
     </section>
 )
 

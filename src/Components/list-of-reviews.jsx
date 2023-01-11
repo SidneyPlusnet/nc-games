@@ -31,7 +31,7 @@ if(isLoading){
                 <p>Votes: {review.votes}</p>
                 <img alt = {review.title} className="imageInMainMenu" src= {review.review_img_url} />
                 <Link to = {`games/${review.review_id}`}>
-                <button onClick={() => handleReviewClick(review)}>More info...</button>
+                <button onClick={() => handleReviewClick(review)} className = "moreInfo">More info...</button>
                 </Link>
             </li>
             
