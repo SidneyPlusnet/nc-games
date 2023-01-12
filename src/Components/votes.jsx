@@ -8,6 +8,7 @@ import { patchReviewByReviewId } from "../Utils/api";
  function ReviewVotes({review_Id_Url, setVotesChange}){
 
 
+    
 function increaseVotes () {
 
     setVotesChange((currentVotes)=>currentVotes +1);
