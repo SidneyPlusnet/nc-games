@@ -17,6 +17,7 @@ useEffect(()=>{
     fetchReviews().then((data) => {
         setIsLoading(false)
         setListOfReviews(data.reviews)
+        
     })}, [])
 
 if(isLoading){

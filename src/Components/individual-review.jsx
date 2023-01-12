@@ -73,7 +73,7 @@ function IndividualReviewFunc () {
                 return <li  key={i} className ="comment" >
                     <p className="author">Author: {comment.author}</p>
                     <p>{comment.body}</p>
-                    <p className="votes">Votes: {comment.votes} <button>Vote up</button></p>
+                    <p className="votes">Votes: {comment.votes} </p>
                     <p className="created_at">Posted...{comment.created_at}</p>
                   
                 </li>

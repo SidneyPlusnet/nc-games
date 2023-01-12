@@ -40,12 +40,20 @@ return gameReviewsApi.patch(`/reviews/${review_id}`, {inc_votes: increment}).the
 })
 }
 
-export const postCommentByReviewId = (review_id, newComment, happyamy2016, votesHere) => {
-const postBody = {review_id: review_id, body: newComment, author: happyamy2016,  votes: votesHere }
+export const fetchUsers = () =>{
 
-console.log(review_id)
+    return fetch('https://sidneys-games-ii.onrender.com/api/users')
+      .then((response) => { 
+   
+         return response.json()})
+  
+  }
+
+
+export const postCommentByReviewId = (review_id, newComment, happyamy2016 ) => {
+const postBody = { body: newComment, username: happyamy2016}
 return gameReviewsApi.post(`/reviews/${review_id}/comments`, postBody ).then(({data})=>{
-  console.log({data}, "data in api.js")
-  return {data}
+
+  return data.comment
 })
 }
