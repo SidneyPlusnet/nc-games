@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+
+
+
  
 export const gameReviewsApi = axios.create({
     baseURL: 'https://sidneys-games-ii.onrender.com/api',
@@ -50,10 +53,15 @@ export const fetchUsers = () =>{
   }
 
 
-export const postCommentByReviewId = (review_id, newComment, happyamy2016 ) => {
+export const postCommentByReviewId = (review_id, newComment, happyamy2016, setErr) => {
 const postBody = { body: newComment, username: happyamy2016}
+
+console.log(postBody, "postBody")
 return gameReviewsApi.post(`/reviews/${review_id}/comments`, postBody ).then(({data})=>{
 
   return data.comment
+}).catch((err)=>{
+  console.log({err}, "err")
+  setErr({err})
 })
 }
