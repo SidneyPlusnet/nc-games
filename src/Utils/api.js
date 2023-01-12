@@ -41,8 +41,11 @@ return gameReviewsApi.patch(`/reviews/${review_id}`, {inc_votes: increment}).the
 }
 
 export const postCommentByReviewId = (review_id, newComment, happyamy2016, votesHere) => {
-const postBody = {author: happyamy2016, body: newComment, votes: votesHere, review_id: review_id}
+const postBody = {review_id: review_id, body: newComment, author: happyamy2016,  votes: votesHere }
 
 console.log(review_id)
-return gameReviewsApi.post(`/reviews/${review_id}/comments`, postBody )
+return gameReviewsApi.post(`/reviews/${review_id}/comments`, postBody ).then(({data})=>{
+  console.log({data}, "data in api.js")
+  return {data}
+})
 }
