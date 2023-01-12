@@ -7,6 +7,8 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Link} from 'react-router-dom';
 
+import ListOfCategories from './Components/list-of-categories';
+
 function App() {
 
 
@@ -20,6 +22,7 @@ function App() {
       <Link to = "/">
       <h2 className='homeButton'>Home</h2>
       </Link>
+      <ListOfCategories/>
  
  <Routes> 
   <Route path = "/" element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview}/>}/>
