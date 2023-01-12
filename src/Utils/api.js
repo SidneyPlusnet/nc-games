@@ -1,4 +1,9 @@
+import axios from 'axios';
 
+ 
+export const gameReviewsApi = axios.create({
+    baseURL: 'https://sidneys-games-ii.onrender.com/api',
+  });
 
 export const fetchReviews = () => {
 
@@ -25,3 +30,22 @@ export const fetchReviewById = (review_id) => {
   
   }
 
+export const patchReviewByReviewId =
+(review_id, increment, setErr) =>{
+
+return gameReviewsApi.patch(`/reviews/${review_id}`, {inc_votes: increment}).then((response) => {
+
+}).catch((err)=>{
+    setErr('404 - Nothing to see here')
+})
+}
+
+export const postCommentByReviewId = (review_id, newComment, happyamy2016, votesHere) => {
+const postBody = {review_id: review_id, body: newComment, author: happyamy2016,  votes: votesHere }
+
+console.log(review_id)
+return gameReviewsApi.post(`/reviews/${review_id}/comments`, postBody ).then(({data})=>{
+  console.log({data}, "data in api.js")
+  return {data}
+})
+}

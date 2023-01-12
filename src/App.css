@@ -16,7 +16,7 @@
 }
 
 .reviewOnHomepage{
-  background-color: rgb(252, 242, 203);
+  background-color: #EEC0C6;
   border-style: solid;
   border-color: rgb(211, 193, 37);
   text-align: center;
@@ -36,7 +36,7 @@
 .individualGame{
   display: block;
   overflow: auto;
-  background-color: rgb(252, 242, 203);
+  background-color: #EEC0C6;
   max-width:1200;
   max-height:500px;
   border-style: solid;
@@ -68,6 +68,7 @@
   border-width: 1px;
   grid-area: 1 / 3 / 2 / 6;
   display:block; 
+  padding: 10px;
 
 }
 
@@ -103,8 +104,9 @@
     line-height: 90%;
     width: 80%;
     top: 40px;
-    padding: 10px 20px 18px 20px;
+    padding: 10px ;
     margin: auto;
+    
    }
 
    .author {
@@ -130,3 +132,48 @@
     text-align: right;
     font-size: 89%;
    }
+
+   .voteButtonUp {
+    transition-duration: 0.3s;
+  }
+  
+  .voteButtonUp:hover {
+    background-color: #062bd1; 
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  .voteButtonDown {
+    transition-duration: 0.3s;
+  }
+  
+  .voteButtonDown:hover {
+    background-color: #db1b0d; 
+    color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  .mainTitle {
+    background-color: #7ee8fa;
+    color: #111718;
+
+  }
+
+  .homeButton{
+    background-color: #EEC0C6;
+    color: #111718;
+  }
+
+  .app{
+    background-color: #fff07c54;
+  }
+
+.moreInfo {
+  transition-duration: 0.3s;
+}
+
+.moreInfo:hover {
+  background-color:  #80ff72;
+  color: black;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
