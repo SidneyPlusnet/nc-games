@@ -33,6 +33,8 @@ function App() {
   
  <Route path = "/games/:review_Id_Url" element = {<IndividualReviewFunc individualReview = {individualReview} />} /> 
 
+ <Route path = "/:categoryUrl" element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} listOfReviews={listOfReviews} setListOfReviews= {setListOfReviews} categories ={categories}/>}/>
+
  
  </Routes>
 
