@@ -42,20 +42,14 @@ const [user, setUser] = useState("")
         postCommentByReviewId(review_Id_Url, newComment, user.username).then((newComment) =>{
 
             
-            console.log(user.username, "user")
+
 
             if(newComment.body.length === 0){
                 alert("Please include comment")
        
-            }else if(user.username === undefined){
-
-                alert("Please include username")
             }
       else
             {
-
-
-           
 
 
             setCommentsbyId((commentsbyId)=>{
