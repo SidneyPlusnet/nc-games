@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react'
 import { Link, useParams} from 'react-router-dom';
 import { fetchReviews } from '../Utils/api';
 
-function CreateListOfReviews({individualReview, setIndividualReview}) {
+function CreateListOfReviews({ setIndividualReview, sortBy, order}) {
 
     const [listOfReviews, setListOfReviews] = useState([])
 
-    
 
 const [isLoading, setIsLoading] = useState(true)
       const {categoryUrl} = useParams()
@@ -18,11 +17,12 @@ const handleReviewClick = (review) => {
 
 useEffect(()=>{
 
-    fetchReviews(categoryUrl).then((data) => {
+    fetchReviews(categoryUrl, sortBy, order).then((data) => {
         setIsLoading(false)
         setListOfReviews(data.reviews)
+        console.log(order, "order")
         
-    })}, [categoryUrl])
+    })}, [categoryUrl, sortBy, order])
 
 if(isLoading){
     return <div>Loading...</div>
