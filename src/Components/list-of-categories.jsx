@@ -20,7 +20,7 @@ import { Link} from 'react-router-dom';
             
             return <li className="categoryList" key = {i}>
             
-              <Link to={`/${category.slug}`}>{category.slug} </Link> 
+              <Link to={`/categories/${category.slug}`}>{category.slug} </Link> 
             </li>
         })}
         
