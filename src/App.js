@@ -6,17 +6,17 @@ import IndividualReviewFunc from './Components/individual-review';
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Link} from 'react-router-dom';
+import SortByComp from './Components/sort-by';
 
 
 import ListOfCategories from './Components/list-of-categories';
 
 function App() {
 
+  const [sortBy, setSortBy] = useState('created_at')
+  const [order, setOrder] = useState('desc')
 
   const [individualReview, setIndividualReview] = useState({})
-
-
-
 
   return (
     <BrowserRouter>
@@ -27,15 +27,17 @@ function App() {
       </Link>
 
       <ListOfCategories />
- 
+ <SortByComp  sortBy = {sortBy} setSortBy = {setSortBy} order = {order} setOrder = {setOrder}/>
  <Routes> 
-  <Route path = "/" element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} />}/>
+  <Route path = "/" element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} sortBy = {sortBy} order = {order}/>}/>
   
  <Route path = "/games/:review_Id_Url" element = {<IndividualReviewFunc individualReview = {individualReview} />} /> 
 
  <Route path = "/categories/:categoryUrl" 
- element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} />}
+ element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} sortBy = {sortBy} order = {order}/>}
+
 />
+
 
  
  </Routes>
