@@ -8,11 +8,10 @@ export const gameReviewsApi = axios.create({
     baseURL: 'https://sidneys-games-ii.onrender.com/api',
   });
 
-export const fetchReviews = () => {
-
-  return fetch("https://sidneys-games-ii.onrender.com/api/reviews")
-    .then((response) => { 
-       return response.json()})
+export const fetchReviews = (category) => {
+return gameReviewsApi.get("/reviews", {params: {category}}).then((response)=>{
+  return response.data
+})
 
 }
 
@@ -78,4 +77,5 @@ return gameReviewsApi.post(`/reviews/${review_id}/comments`, postBody ).then(({d
   setErr({err})
 })
 }
+
 

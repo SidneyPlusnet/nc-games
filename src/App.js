@@ -14,8 +14,8 @@ function App() {
 
 
   const [individualReview, setIndividualReview] = useState({})
-  const [listOfReviews, setListOfReviews] = useState([])
-  const [categories, setCategories] = useState([])
+
+
 
 
   return (
@@ -26,14 +26,16 @@ function App() {
       <h2 className='homeButton'>Home</h2>
       </Link>
 
-      <ListOfCategories categories = {categories} setCategories = {setCategories} />
+      <ListOfCategories />
  
  <Routes> 
-  <Route path = "/" element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} listOfReviews={listOfReviews} setListOfReviews= {setListOfReviews} categories ={categories}/>}/>
+  <Route path = "/" element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} />}/>
   
  <Route path = "/games/:review_Id_Url" element = {<IndividualReviewFunc individualReview = {individualReview} />} /> 
 
- <Route path = "/:categoryUrl" element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} listOfReviews={listOfReviews} setListOfReviews= {setListOfReviews} categories ={categories}/>}/>
+ <Route path = "/:categoryUrl" 
+ element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} />}
+/>
 
  
  </Routes>
