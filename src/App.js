@@ -7,12 +7,15 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Link} from 'react-router-dom';
 
+
 import ListOfCategories from './Components/list-of-categories';
 
 function App() {
 
 
   const [individualReview, setIndividualReview] = useState({})
+
+
 
 
   return (
@@ -22,12 +25,19 @@ function App() {
       <Link to = "/">
       <h2 className='homeButton'>Home</h2>
       </Link>
-      <ListOfCategories/>
+
+      <ListOfCategories />
  
  <Routes> 
-  <Route path = "/" element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview}/>}/>
+  <Route path = "/" element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} />}/>
   
  <Route path = "/games/:review_Id_Url" element = {<IndividualReviewFunc individualReview = {individualReview} />} /> 
+
+ <Route path = "/categories/:categoryUrl" 
+ element = {<CreateListOfReviews individualReview = {individualReview} setIndividualReview = {setIndividualReview} />}
+/>
+
+ 
  </Routes>
 
     </div>

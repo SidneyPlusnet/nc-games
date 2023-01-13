@@ -8,11 +8,10 @@ export const gameReviewsApi = axios.create({
     baseURL: 'https://sidneys-games-ii.onrender.com/api',
   });
 
-export const fetchReviews = () => {
-
-  return fetch("https://sidneys-games-ii.onrender.com/api/reviews")
-    .then((response) => { 
-       return response.json()})
+export const fetchReviews = (category, sort_by) => {
+return gameReviewsApi.get("/reviews", {params: {category, sort_by}}).then((response)=>{
+  return response.data
+})
 
 }
 
@@ -53,6 +52,18 @@ export const fetchUsers = () =>{
   }
 
 
+export const fetchCategories = () =>{
+
+  return fetch('https://sidneys-games-ii.onrender.com/api/categories')
+    .then((response) => { 
+ 
+       return response.json()})
+
+}
+
+
+
+
 export const postCommentByReviewId = (review_id, newComment, happyamy2016, setErr) => {
 const postBody = { body: newComment, username: happyamy2016}
 
@@ -60,8 +71,11 @@ const postBody = { body: newComment, username: happyamy2016}
 return gameReviewsApi.post(`/reviews/${review_id}/comments`, postBody ).then(({data})=>{
 
   return data.comment
-}).catch((err)=>{
+})
+.catch((err)=>{
  
   setErr({err})
 })
 }
+
+
